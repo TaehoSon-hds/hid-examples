@@ -1,3 +1,5 @@
+{-# LANGUAGE ImportQualifiedPost #-}
+
 import Data.Char (isLetter)
 import Data.List (group, sort)
 import Data.Text qualified as T
