@@ -1,17 +1,20 @@
-import Data.Char
-import Data.List (sort, group)
-import qualified Data.Text as T
-import qualified Data.Text.IO as TIO
-import System.Environment
+{-# LANGUAGE ImportQualifiedPost #-}
+
+import Data.Char (isLetter)
+import Data.List (group, sort)
+import Data.Text qualified as T
+import Data.Text.IO qualified as TIO
+import System.Environment (getArgs)
 
 type Entry = (T.Text, Int)
+
 type Vocabulary = [Entry]
 
 extractVocab :: T.Text -> Vocabulary
 extractVocab t = map buildEntry $ group $ sort ws
   where
     ws = map T.toCaseFold $ filter (not . T.null) $ map cleanWord $ T.words t
-    buildEntry xs@(x:_) = (x, length xs)
+    buildEntry xs@(x : _) = (x, length xs)
     buildEntry [] = error "unexpected"
     cleanWord = T.dropAround (not . isLetter)
 

@@ -15,3 +15,5 @@ config.json
 .idea
 hid-examples.iml
 stack.yaml.lock
+.direnv
+result
