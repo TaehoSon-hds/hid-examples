@@ -7,5 +7,5 @@ in haskellPackages.shellFor {
     [ haskell-language-server
 
     ]) ++
-    [ ];
+    [ cabal-install ];
 }
