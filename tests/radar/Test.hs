@@ -4,10 +4,18 @@ import System.Exit (exitFailure)
 
 import Data.List (sort, nub)
 import Control.Monad (replicateM, when)
-import System.Random
-import System.Random.Stateful (uniformRM, uniformM)
+import System.Random ( getStdRandom, uniform )
+import System.Random.Stateful (UniformRange(uniformRM), Uniform (uniformM))
 
 import Radar
+    ( every,
+      orient,
+      orientMany,
+      rotateMany,
+      rotateMany',
+      rotateManySteps,
+      Direction,
+      Turn(..) )
 
 instance UniformRange Turn where
   uniformRM (lo, hi) rng = do
@@ -15,7 +23,7 @@ instance UniformRange Turn where
     pure $ toEnum res
 
 instance Uniform Turn where
-  uniformM rng = uniformRM (minBound, maxBound) rng
+  uniformM = uniformRM (minBound, maxBound)
 
 instance UniformRange Direction where
   uniformRM (lo, hi) rng = do
@@ -23,7 +31,7 @@ instance UniformRange Direction where
     pure $ toEnum res
 
 instance Uniform Direction where
-  uniformM rng = uniformRM (minBound, maxBound) rng
+  uniformM = uniformRM (minBound, maxBound)
 
 uniformIO :: Uniform a => IO a
 uniformIO = getStdRandom uniform
