@@ -2,7 +2,7 @@
 
 module Expr where
 
-import TextShow
+import TextShow ( showbParen, TextShow(showb, showbPrec) )
 
 data Expr a = Lit a
             | Add (Expr a) (Expr a)
