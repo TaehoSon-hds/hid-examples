@@ -1,4 +1,3 @@
-{-# LANGUAGE StandaloneDeriving #-}
 
 import Person
 

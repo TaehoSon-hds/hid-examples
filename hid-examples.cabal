@@ -864,27 +864,27 @@ library radar-lib
 --     , stm >=2.4 && <2.6
 --   default-language: Haskell2010
 
--- executable person-derived
---   main-is: derived-show.hs
---   other-modules:
---       Person
---   hs-source-dirs:
---       ch02/person
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable person-derived
+  main-is: derived-show.hs
+  other-modules:
+      Person
+  hs-source-dirs:
+      ch02/person
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable person-implemented
---   main-is: implemented-show.hs
---   other-modules:
---       Person
---   hs-source-dirs:
---       ch02/person
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable person-implemented
+  main-is: implemented-show.hs
+  other-modules:
+      Person
+  hs-source-dirs:
+      ch02/person
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable person-text
 --   main-is: text-show.hs
