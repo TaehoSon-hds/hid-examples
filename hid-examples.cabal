@@ -576,19 +576,19 @@ library radar-lib
 --     , mtl >=2.0 && <2.3
 --   default-language: Haskell2010
 
--- executable genSQL
---   main-is: genSQL.hs
---   other-modules:
---       Paths_hid_examples
---   hs-source-dirs:
---       ch05
---   other-extensions: OverloadedStrings ViewPatterns
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , mtl >=2.0 && <2.3
---     , text >=1.2 && <1.3
---   default-language: Haskell2010
+executable genSQL
+  main-is: genSQL.hs
+  other-modules:
+      Paths_hid_examples
+  hs-source-dirs:
+      ch05
+  other-extensions: OverloadedStrings ViewPatterns
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , mtl
+    , text
+  default-language: Haskell2010
 
 -- executable generic-sql
 --   main-is: Main.hs
