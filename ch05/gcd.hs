@@ -1,4 +1,4 @@
-import Control.Monad.Writer
+import Control.Monad.Writer ( mapWriter, Sum(Sum), MonadWriter(tell), Writer )
 
 gcd' :: Integral a => a -> a -> a
 gcd' a 0 = a
