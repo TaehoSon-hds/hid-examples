@@ -1,5 +1,5 @@
-import Data.Foldable
-import Control.Monad.State
+import Data.Foldable ( traverse_ )
+import Control.Monad.State ( modify', MonadState(put, get), execState, State )
 
 addItem :: Integer -> State Integer ()
 addItem n = do
@@ -10,7 +10,7 @@ addItem' :: Integer -> State Integer ()
 addItem' n = modify' (+n)
 
 sumList :: [Integer] -> State Integer ()
-sumList xs = traverse_ addItem xs
+sumList = traverse_ addItem
 
 answer :: Integer
 answer = execState (sumList [1..100]) 0
