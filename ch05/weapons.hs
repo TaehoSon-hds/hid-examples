@@ -1,6 +1,6 @@
 import Data.List (group, sort)
-import Control.Monad.State
-import System.Random
+import Control.Monad.State ( replicateM, MonadState(state), evalState, State )
+import System.Random ( newStdGen, uniform, StdGen, Uniform, UniformRange )
 import System.Random.Stateful (uniformRM, uniformM)
 
 data Weapon = Rock | Paper | Scissors
@@ -23,7 +23,7 @@ instance UniformRange Weapon where
     pure $ toEnum res
 
 instance Uniform Weapon where
-  uniformM rng = uniformRM (minBound, maxBound) rng
+  uniformM = uniformRM (minBound, maxBound)
 
 randomWeapon :: State StdGen Weapon
 randomWeapon = state uniform
