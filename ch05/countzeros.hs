@@ -1,7 +1,7 @@
 import Data.Foldable (traverse_)
 import Control.Monad (when)
-import Control.Monad.ST
-import Data.STRef
+import Control.Monad.ST ( runST )
+import Data.STRef ( modifySTRef', newSTRef, readSTRef )
 
 countZeros :: [Int] -> Int
 countZeros = length . filter (== 0)

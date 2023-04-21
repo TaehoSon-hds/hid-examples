@@ -1,5 +1,11 @@
 import Control.Monad.RWS
-import System.Random
+    ( replicateM,
+      MonadState(state, get, put),
+      evalRWS,
+      MonadReader(ask),
+      MonadWriter(tell),
+      RWS )
+import System.Random ( newStdGen, uniformR, StdGen )
 
 type Dice = Int
 

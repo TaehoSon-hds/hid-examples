@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns #-}
 
-import Data.Foldable
-import Control.Monad.Writer
+import Control.Monad.Writer ( MonadWriter(tell), Writer, runWriter )
+import Data.Foldable ( traverse_ )
 import Data.Text(Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as TIO

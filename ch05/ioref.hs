@@ -1,4 +1,4 @@
-import Data.IORef
+import Data.IORef ( modifyIORef', newIORef, readIORef )
 import Text.Read (readMaybe)
 
 sumNumbers :: IO Int
