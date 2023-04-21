@@ -682,16 +682,16 @@ executable genSQL
 --       base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable ioref
---   main-is: ioref.hs
---   other-modules:
---       Paths_hid_examples
---   hs-source-dirs:
---       ch05
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable ioref
+  main-is: ioref.hs
+  other-modules:
+      Paths_hid_examples
+  hs-source-dirs:
+      ch05
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable ipgen
 --   main-is: ip/gen/Main.hs
