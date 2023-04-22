@@ -1,7 +1,20 @@
 module DiskUsage (diskUsage) where
 
 import App
-import Utils
+    ( liftM2,
+      when,
+      MonadReader(ask),
+      modify,
+      MonadState(get),
+      MonadWriter(tell),
+      FileOffset,
+      fileSize,
+      isDirectory,
+      isRegularFile,
+      AppEnv(AppEnv, cfg, fileStatus, depth, path),
+      AppConfig(maxDepth),
+      MyApp )
+import Utils ( traverseDirectoryWith, currentPathStatus, checkExtension )
 
 data DUEntryAction =
     TraverseDir {dirpath :: FilePath, requireReporting :: Bool}

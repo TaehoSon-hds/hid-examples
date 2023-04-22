@@ -1,13 +1,32 @@
 module Main where
 
 import Options.Applicative as Opt
-import TextShow
-import Data.Text.IO as TIO
+    ( (<**>),
+      optional,
+      auto,
+      fullDesc,
+      help,
+      info,
+      long,
+      metavar,
+      option,
+      progDesc,
+      short,
+      showDefault,
+      strArgument,
+      strOption,
+      switch,
+      value,
+      execParser,
+      helper,
+      Parser )
+import TextShow ( TextShow(showb), fromString, toText, unlinesB, Builder )
+import Data.Text.IO as TIO ( putStr )
 
-import App
-import DiskUsage
-import FileCounter
-import DirTree
+import App ( FileOffset, AppConfig(AppConfig), runMyApp )
+import DiskUsage ( diskUsage )
+import FileCounter ( fileCount )
+import DirTree ( dirTree )
 
 buildEntries :: Builder -> (e -> Builder) -> [e] -> Builder
 buildEntries title entryBuilder entries =

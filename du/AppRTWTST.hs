@@ -2,11 +2,11 @@
 
 module AppRTWTST where
 
-import Control.Monad.Writer
-import Control.Monad.Reader
-import Control.Monad.State
+import Control.Monad.Writer ( MonadIO, WriterT(runWriterT), MonadWriter )
+import Control.Monad.Reader ( MonadReader, ReaderT(..) )
+import Control.Monad.State ( StateT, MonadState, evalStateT )
 
-import AppTypes
+import AppTypes ( AppEnv, AppConfig, initialEnv )
 
 newtype MyApp logEntry state a = MyApp {
       runApp :: ReaderT AppEnv

@@ -1,6 +1,6 @@
 module AppTypes where
 
-import System.PosixCompat.Files
+import System.PosixCompat.Files ( getFileStatus, getSymbolicLinkStatus, FileStatus )
 
 data AppConfig = AppConfig {
     basePath :: FilePath
@@ -17,7 +17,7 @@ data AppEnv = AppEnv {
   }
 
 initialEnv :: AppConfig -> AppEnv
-initialEnv config @ AppConfig {..} = AppEnv {
+initialEnv config@AppConfig {..} = AppEnv {
     cfg = config
   , path = basePath
   , depth = 0
