@@ -1,10 +1,11 @@
 module EvalRPNTrans2 where
 
-import Control.Monad.State
-import Control.Applicative
+import Control.Monad.State ( guard, modify, MonadState(get, put), evalState, State, gets )
+import Control.Applicative ( Alternative(empty) )
+import Data.Foldable (traverse_)
 import Text.Read (readMaybe)
 
-import MyMaybeT
+import MyMaybeT ( MaybeT(runMaybeT) )
 
 type Stack = [Integer]
 type EvalM = MaybeT (State Stack)
@@ -27,7 +28,7 @@ pop = do
 
 oneElementOnStack :: EvalM ()
 oneElementOnStack = do
-  l <- length <$> get
+  l <- gets length
   guard (l == 1)
 
 readSafe :: (Read a, Alternative m) => String -> m a
@@ -39,7 +40,7 @@ readSafe str =
 evalRPN :: String -> Maybe Integer
 evalRPN str = evalState (runMaybeT evalRPN') []
   where
-    evalRPN' = traverse step (words str) >> oneElementOnStack >> pop
+    evalRPN' = traverse_ step (words str) >> oneElementOnStack >> pop
     step "+" = processTops (+)
     step "*" = processTops (*)
     step "-" = processTops (-)
