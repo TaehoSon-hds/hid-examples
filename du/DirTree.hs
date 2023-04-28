@@ -1,7 +1,15 @@
 module DirTree where
 
 import App
-import Utils
+    ( when,
+      MonadReader(ask),
+      MonadWriter(tell),
+      takeBaseName,
+      isDirectory,
+      AppEnv(AppEnv, cfg, fileStatus, depth, path),
+      AppConfig(maxDepth),
+      MyApp )
+import Utils ( traverseDirectoryWith, currentPathStatus )
 
 dirTree :: MyApp (FilePath, Int) s ()
 dirTree = do

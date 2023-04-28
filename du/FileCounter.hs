@@ -3,7 +3,15 @@ module FileCounter (fileCount) where
 import System.Directory.Extra (listFiles)
 
 import App
-import Utils
+    ( when,
+      MonadIO(liftIO),
+      MonadReader(ask),
+      MonadWriter(tell),
+      isDirectory,
+      AppEnv(AppEnv, cfg, fileStatus, depth, path),
+      AppConfig(maxDepth),
+      MyApp )
+import Utils ( traverseDirectoryWith, currentPathStatus, checkExtension )
 
 fileCount :: MyApp (FilePath, Int) s ()
 fileCount = do

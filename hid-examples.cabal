@@ -445,34 +445,34 @@ executable dicegame
 --     , stm >=2.4 && <2.6
 --   default-language: Haskell2010
 
--- executable du
---   main-is: Main.hs
---   other-modules:
---       App
---       AppRTWTST
---       AppRWST
---       AppTypes
---       DirTree
---       DiskUsage
---       FileCounter
---       Utils
---       Paths_hid_examples
---   hs-source-dirs:
---       du
---   default-extensions: RecordWildCards NamedFieldPuns OverloadedStrings
---   other-extensions: GeneralizedNewtypeDeriving
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , directory >=1.3 && <1.4
---     , extra >=1.5 && <1.8
---     , filepath >=1.4.1 && <1.5
---     , mtl >=2.0 && <2.3
---     , optparse-applicative >=0.14 && <0.17
---     , text >=1.2 && <1.3
---     , text-show >=3.0 && <4
---     , unix-compat >=0.5 && <0.6
---   default-language: Haskell2010
+executable du
+  main-is: Main.hs
+  other-modules:
+      App
+      AppRTWTST
+      AppRWST
+      AppTypes
+      DirTree
+      DiskUsage
+      FileCounter
+      Utils
+      Paths_hid_examples
+  hs-source-dirs:
+      du
+  default-extensions: RecordWildCards NamedFieldPuns OverloadedStrings
+  other-extensions: GeneralizedNewtypeDeriving
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , directory
+    , extra
+    , filepath
+    , mtl
+    , optparse-applicative
+    , text
+    , text-show
+    , unix-compat
+  default-language: Haskell2010
 
 -- executable dynvalues-gadt
 --   main-is: ch11/dynvalues-gadt.hs
@@ -503,44 +503,44 @@ executable dicegame
 --     , singletons >=2.5 && <2.8
 --   default-language: Haskell2010
 
--- executable evalrpn1
---   main-is: evalrpn1.hs
---   other-modules:
---       EvalRPN
---   hs-source-dirs:
---       expr/rpn
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , mtl >=2.0 && <2.3
---   default-language: Haskell2010
+executable evalrpn1
+  main-is: evalrpn1.hs
+  other-modules:
+      EvalRPN
+  hs-source-dirs:
+      expr/rpn
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , mtl
+  default-language: Haskell2010
 
--- executable evalrpn2
---   main-is: evalrpn2.hs
---   other-modules:
---       EvalRPNTrans
---   hs-source-dirs:
---       expr/rpn
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , mtl >=2.0 && <2.3
---   default-language: Haskell2010
+executable evalrpn2
+  main-is: evalrpn2.hs
+  other-modules:
+      EvalRPNTrans
+  hs-source-dirs:
+      expr/rpn
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , mtl
+  default-language: Haskell2010
 
--- executable evalrpn3
---   main-is: evalrpn3.hs
---   other-modules:
---       MyMaybeT
---       EvalRPNTrans2
---   hs-source-dirs:
---       expr/rpn
---   other-extensions: FlexibleInstances MultiParamTypeClasses UndecidableInstances InstanceSigs LambdaCase
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , mtl >=2.0 && <2.3
---     , transformers >=0.5 && <0.6
---   default-language: Haskell2010
+executable evalrpn3
+  main-is: evalrpn3.hs
+  other-modules:
+      MyMaybeT
+      EvalRPNTrans2
+  hs-source-dirs:
+      expr/rpn
+  other-extensions: FlexibleInstances MultiParamTypeClasses UndecidableInstances InstanceSigs LambdaCase
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , mtl
+    , transformers
+  default-language: Haskell2010
 
 -- executable expr-gadt
 --   main-is: expr/gadts/Main.hs

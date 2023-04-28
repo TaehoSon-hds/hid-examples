@@ -7,9 +7,9 @@
 
 module MyMaybeT (MaybeT(..)) where
 
-import Control.Monad.Trans.Class
-import Control.Applicative
-import Control.Monad.State
+import Control.Monad.Trans.Class ( MonadTrans(..) )
+import Control.Applicative ( Alternative((<|>), empty) )
+import Control.Monad.State ( MonadIO(..), MonadState(state) )
 
 #if !MIN_VERSION_base(4,13,0)
 -- Control.Monad.Fail import is redundant since GHC 8.8.1

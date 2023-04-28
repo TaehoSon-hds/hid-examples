@@ -1,9 +1,18 @@
 module Utils where
 
 import Data.Foldable (traverse_)
-import System.Directory
+import System.Directory ( listDirectory )
 
 import App
+    ( asks,
+      MonadIO(liftIO),
+      MonadReader(ask, local),
+      (</>),
+      isExtensionOf,
+      FileStatus,
+      AppEnv(AppEnv, path, depth, fileStatus),
+      AppConfig(extension),
+      MyApp )
 
 traverseDirectoryWith :: MyApp le s () -> MyApp le s ()
 traverseDirectoryWith app = do
