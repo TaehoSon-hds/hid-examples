@@ -1195,18 +1195,18 @@ executable sumlist
 --       base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable temp-proxies
---   main-is: temp-proxies.hs
---   other-modules:
---       TempPhantom
---       UnitNameProxies
---   hs-source-dirs:
---       ch11/temperature
---   other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds InstanceSigs
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable temp-proxies
+  main-is: temp-proxies.hs
+  other-modules:
+      TempPhantom
+      UnitNameProxies
+  hs-source-dirs:
+      ch11/temperature
+  other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds InstanceSigs
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable temp-type-apps
 --   main-is: temp-type-apps.hs
