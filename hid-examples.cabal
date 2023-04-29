@@ -1185,15 +1185,15 @@ executable sumlist
 --     , transformers >=0.5 && <0.6
 --   default-language: Haskell2010
 
--- executable temp-kinds
---   main-is: temp-kinds.hs
---   hs-source-dirs:
---       ch11/temperature
---   other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds AllowAmbiguousTypes TypeApplications
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable temp-kinds
+  main-is: temp-kinds.hs
+  hs-source-dirs:
+      ch11/temperature
+  other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds AllowAmbiguousTypes TypeApplications
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+  default-language: Haskell2010
 
 executable temp-proxies
   main-is: temp-proxies.hs
