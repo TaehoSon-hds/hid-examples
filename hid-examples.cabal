@@ -1261,13 +1261,13 @@ executable temp-type-apps
 --       base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable type-operators
---   main-is: ch11/type-operators.hs
---   other-extensions: TypeOperators NoStarIsType
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable type-operators
+  main-is: ch11/type-operators.hs
+  other-extensions: TypeOperators NoStarIsType
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable unboxed
 --   main-is: ch09/unboxed.hs
