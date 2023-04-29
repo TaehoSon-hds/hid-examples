@@ -1,7 +1,7 @@
-import SimplifyWiden
-import Unescape
-import XListable
-import Graphs
+import SimplifyWiden ( Widener(widen), Simplifier(simplify) )
+import Unescape ( uprint )
+import XListable ( testXList )
+import Graphs ( Edge(MkEdge1), neighbors, isLoop, g1 )
 
 testGraphs :: IO ()
 testGraphs = do
