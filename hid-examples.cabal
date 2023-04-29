@@ -1248,18 +1248,18 @@ executable temp-type-apps
 --     , containers >=0.5 && <0.7
 --   default-language: Haskell2010
 
--- executable type-lits
---   main-is: Main.hs
---   other-modules:
---       Pointers
---       SuffixedStrings
---   hs-source-dirs:
---       ch11/type-lits
---   other-extensions: DataKinds KindSignatures ScopedTypeVariables
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable type-lits
+  main-is: Main.hs
+  other-modules:
+      Pointers
+      SuffixedStrings
+  hs-source-dirs:
+      ch11/type-lits
+  other-extensions: DataKinds KindSignatures ScopedTypeVariables
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 executable type-operators
   main-is: ch11/type-operators.hs
