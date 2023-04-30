@@ -474,15 +474,15 @@ executable du
     , unix-compat
   default-language: Haskell2010
 
--- executable dynvalues-gadt
---   main-is: ch11/dynvalues-gadt.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: GADTs
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable dynvalues-gadt
+  main-is: ch11/dynvalues-gadt.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: GADTs
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable elevator
 --   main-is: UseSafe.hs
