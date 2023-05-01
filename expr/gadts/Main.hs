@@ -30,4 +30,4 @@ data SomeExpr where
   Some :: Expr a -> SomeExpr
 
 main :: IO ()
-main = print $ myeval $ expr2
+main = print $ myeval expr2
