@@ -474,15 +474,15 @@ executable du
     , unix-compat
   default-language: Haskell2010
 
--- executable dynvalues-gadt
---   main-is: ch11/dynvalues-gadt.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: GADTs
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable dynvalues-gadt
+  main-is: ch11/dynvalues-gadt.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: GADTs
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable elevator
 --   main-is: UseSafe.hs
@@ -542,15 +542,15 @@ executable evalrpn3
     , transformers
   default-language: Haskell2010
 
--- executable expr-gadt
---   main-is: expr/gadts/Main.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: GADTSyntax GADTs
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-type-defaults -Wno-missing-signatures
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable expr-gadt
+  main-is: expr/gadts/Main.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: GADTSyntax GADTs
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-type-defaults -Wno-missing-signatures
+  build-depends:
+      base
+  default-language: Haskell2010
 
 executable filecount
   main-is: filecount.hs
@@ -811,18 +811,18 @@ executable maybe
 --     , mtl >=2.0 && <2.3
 --   default-language: Haskell2010
 
--- executable nummod-rank-n
---   main-is: Main.hs
---   other-modules:
---       NumUtils
---       Paths_hid_examples
---   hs-source-dirs:
---       ch11/nummod-rank-n/
---   other-extensions: RankNTypes
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable nummod-rank-n
+  main-is: Main.hs
+  other-modules:
+      NumUtils
+      Paths_hid_examples
+  hs-source-dirs:
+      ch11/nummod-rank-n/
+  other-extensions: RankNTypes
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable opaleye
 --   other-modules:
@@ -1185,41 +1185,41 @@ executable sumlist
 --     , transformers >=0.5 && <0.6
 --   default-language: Haskell2010
 
--- executable temp-kinds
---   main-is: temp-kinds.hs
---   hs-source-dirs:
---       ch11/temperature
---   other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds AllowAmbiguousTypes TypeApplications
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable temp-kinds
+  main-is: temp-kinds.hs
+  hs-source-dirs:
+      ch11/temperature
+  other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds AllowAmbiguousTypes TypeApplications
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable temp-proxies
---   main-is: temp-proxies.hs
---   other-modules:
---       TempPhantom
---       UnitNameProxies
---   hs-source-dirs:
---       ch11/temperature
---   other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds InstanceSigs
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable temp-proxies
+  main-is: temp-proxies.hs
+  other-modules:
+      TempPhantom
+      UnitNameProxies
+  hs-source-dirs:
+      ch11/temperature
+  other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds InstanceSigs
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable temp-type-apps
---   main-is: temp-type-apps.hs
---   other-modules:
---       TempPhantom
---       UnitNameTypeApps
---   hs-source-dirs:
---       ch11/temperature
---   other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds AllowAmbiguousTypes TypeApplications
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable temp-type-apps
+  main-is: temp-type-apps.hs
+  other-modules:
+      TempPhantom
+      UnitNameTypeApps
+  hs-source-dirs:
+      ch11/temperature
+  other-extensions: GeneralizedNewtypeDeriving ScopedTypeVariables PolyKinds AllowAmbiguousTypes TypeApplications
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable tree-async
 --   main-is: ch16/tree-async.hs
@@ -1231,43 +1231,43 @@ executable sumlist
 --     , base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable type-families
---   main-is: Main.hs
---   other-modules:
---       Graphs
---       SimplifyWiden
---       Unescape
---       XListable
---       Paths_hid_examples
---   hs-source-dirs:
---       ch11/type-families
---   other-extensions: TypeFamilies FlexibleInstances
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-type-defaults
---   build-depends:
---       base >=4.12 && <4.15
---     , containers >=0.5 && <0.7
---   default-language: Haskell2010
+executable type-families
+  main-is: Main.hs
+  other-modules:
+      Graphs
+      SimplifyWiden
+      Unescape
+      XListable
+      Paths_hid_examples
+  hs-source-dirs:
+      ch11/type-families
+  other-extensions: TypeFamilies FlexibleInstances
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-type-defaults
+  build-depends:
+      base
+    , containers
+  default-language: Haskell2010
 
--- executable type-lits
---   main-is: Main.hs
---   other-modules:
---       Pointers
---       SuffixedStrings
---   hs-source-dirs:
---       ch11/type-lits
---   other-extensions: DataKinds KindSignatures ScopedTypeVariables
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable type-lits
+  main-is: Main.hs
+  other-modules:
+      Pointers
+      SuffixedStrings
+  hs-source-dirs:
+      ch11/type-lits
+  other-extensions: DataKinds KindSignatures ScopedTypeVariables
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable type-operators
---   main-is: ch11/type-operators.hs
---   other-extensions: TypeOperators NoStarIsType
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable type-operators
+  main-is: ch11/type-operators.hs
+  other-extensions: TypeOperators NoStarIsType
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable unboxed
 --   main-is: ch09/unboxed.hs

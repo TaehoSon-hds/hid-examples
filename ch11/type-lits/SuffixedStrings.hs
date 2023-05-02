@@ -4,15 +4,15 @@
 
 module SuffixedStrings (SuffixedString, suffixed, asString) where
 
-import GHC.TypeLits
-import Data.Proxy
+import GHC.TypeLits ( KnownSymbol, Symbol, symbolVal )
+import Data.Proxy ( Proxy(..) )
 
 -- Example: suffixed strings
 
 data SuffixedString (suffix :: Symbol) = SS String
 
 suffixed :: String -> SuffixedString suffix
-suffixed s = SS s
+suffixed = SS
 
 asString :: forall suffix. KnownSymbol suffix =>
             SuffixedString suffix -> String

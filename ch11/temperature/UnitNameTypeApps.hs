@@ -5,7 +5,7 @@
 
 module UnitNameTypeApps where
 
-import TempPhantom
+import TempPhantom ( C, F, Temp(..) )
 
 class UnitName u where
   unitName :: String

@@ -1,7 +1,7 @@
-import NumUtils
+import NumUtils ( NumModifier(..) )
 
 processInts :: NumModifier -> [Int] -> [Int]
-processInts nm xs = map (run nm) xs
+processInts nm = map (run nm)
 
 main :: IO ()
 main = print $ processInts (NumModifier (+1)) [1,2,3]
