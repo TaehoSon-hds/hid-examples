@@ -243,16 +243,16 @@ library shunting-yard
 --       base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable basic-deriv
---   main-is: basic-deriv.hs
---   other-modules:
---       Paths_hid_examples
---   hs-source-dirs:
---       ch12/deriv/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable basic-deriv
+  main-is: basic-deriv.hs
+  other-modules:
+      Paths_hid_examples
+  hs-source-dirs:
+      ch12/deriv/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable chars
 --   main-is: ch14/chars.hs
