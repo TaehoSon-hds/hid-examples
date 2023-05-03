@@ -1077,17 +1077,17 @@ executable reader
 --     , time >=1.8 && <1.12
 --   default-language: Haskell2010
 
--- executable strategies
---   main-is: strategies.hs
---   other-modules:
---       Paths_hid_examples
---   hs-source-dirs:
---       ch12/deriv/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       aeson >=1.2 && <1.6
---     , base >=4.12 && <4.15
---   default-language: Haskell2010
+executable strategies
+  main-is: strategies.hs
+  other-modules:
+      Paths_hid_examples
+  hs-source-dirs:
+      ch12/deriv/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      aeson
+    , base
+  default-language: Haskell2010
 
 -- executable stream
 --   main-is: ch14/stream.hs
