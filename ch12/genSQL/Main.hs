@@ -3,11 +3,11 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DeriveAnyClass #-}
 
-import GHC.Generics
+import GHC.Generics ( Generic )
 import Data.Text (Text)
 import qualified Data.Text.IO as TIO
 
-import GenericSQL
+import GenericSQL ( ToSQL(..) )
 
 data Student = Student {studentId :: Int, name :: Text, year :: Int}
   deriving stock Generic
