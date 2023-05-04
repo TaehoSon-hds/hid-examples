@@ -1303,16 +1303,16 @@ executable via
       base
   default-language: Haskell2010
 
--- executable view-generic
---   main-is: view-generic.hs
---   other-modules:
---       Paths_hid_examples
---   hs-source-dirs:
---       ch12/generics/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-missing-signatures
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable view-generic
+  main-is: view-generic.hs
+  other-modules:
+      Paths_hid_examples
+  hs-source-dirs:
+      ch12/generics/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-missing-signatures
+  build-depends:
+      base
+  default-language: Haskell2010
 
 executable vocab1
   main-is: vocab1.hs
