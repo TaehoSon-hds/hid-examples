@@ -15,12 +15,12 @@
 #endif
 
 
-import Data.Singletons.TH
+import Data.Singletons.TH ( SingI(..), SingKind(fromSing), singletons )
 
 $(singletons [d|
  data DoorState = Opened | Closed
-  deriving Show
  |])
+deriving instance Show DoorState
 
 data Door (s :: DoorState) where
   MkDoor :: SingI s => Door s
