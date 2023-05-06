@@ -5,20 +5,20 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 module RemoteIO where
 
-import RpcCommon
-import Control.Monad.Reader
-import Control.Monad.State
-import Control.Monad.Catch
-import Network.Connection
+import RpcCommon ( DecodeStages(Stage1, Stage0), RSIO(runRem), RemoteState(..), RemoteException(RemoteException, ConnectionClosed), msgSizeField )
+import Control.Monad.Reader ( MonadIO(liftIO), MonadReader(ask), ReaderT(runReaderT) )
+import Control.Monad.State ( evalStateT )
+import Control.Monad.Catch ( Exception(displayException), MonadCatch(catch), MonadThrow(throwM) )
+import Network.Connection ( connectTo, connectionClose, connectionGetExact, connectionPut, initConnectionContext, Connection, ConnectionParams(ConnectionParams) )
 import Network.Socket (PortNumber)
 import System.IO.Error (isEOFError)
 
 
-import Data.Serialize hiding (get,put)
+import Data.Serialize ( decode, encode, getWord64be, runGet, putByteString, putWord64be, runPut, Serialize )
 import qualified Data.ByteString as BS
 
 unEitherStaged :: DecodeStages -> Either String a -> RSIO st a
-unEitherStaged stage eValue = either (throwRemote . errMsg) pure eValue
+unEitherStaged stage = either (throwRemote . errMsg) pure
   where
     errMsg msg = "Decoding error (" <> show stage <> "): " <> msg
 

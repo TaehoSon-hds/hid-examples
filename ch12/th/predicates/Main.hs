@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 module Main where
-import Predicates
+import Predicates ( mkPredicates )
 
 data Shape = Circle Double | Square Double
            | Triangle Double Double Double

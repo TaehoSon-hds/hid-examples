@@ -6,8 +6,8 @@
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE FlexibleInstances #-}
 
-import Data.Coerce
-import Control.Monad.State
+import Data.Coerce ( coerce )
+import Control.Monad.State ( StateT(StateT) )
 
 newtype Age = Age Int
 --  deriving newtype (Eq, Ord)
@@ -43,4 +43,3 @@ instance Inspector Int where
 main :: IO ()
 main = do
   print $ Age 42 < Age 42
-

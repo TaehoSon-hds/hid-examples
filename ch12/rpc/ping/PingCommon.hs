@@ -3,10 +3,10 @@
 {-# LANGUAGE DerivingStrategies #-}
 module PingCommon where
 
-import GHC.Generics
-import Data.Serialize
+import GHC.Generics ( Generic )
+import Data.Serialize ( Serialize )
 
-import RpcCommon
+import RpcCommon ( RSIO, RemoteState(..) )
 
 instance RemoteState Integer where
     initState = 0

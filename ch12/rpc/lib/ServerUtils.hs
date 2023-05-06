@@ -3,16 +3,16 @@
 
 module ServerUtils (genServer, serveRPC, runSerialized) where
 
-import Data.Serialize
+import Data.Serialize ( decode, encode, Serialize )
 import Data.ByteString (ByteString)
-import Control.Monad
-import Control.Monad.Catch
-import Network.Simple.TCP
-import Network.Connection
+import Control.Monad ( forever )
+import Control.Monad.Catch ( Exception(displayException), MonadCatch(catch) )
+import Network.Simple.TCP ( HostName, serve, HostPreference(Host) )
+import Network.Connection ( connectFromSocket, initConnectionContext, ConnectionParams(ConnectionParams) )
 import Network.Socket (PortNumber)
 
-import RemoteIO
-import RpcCommon
+import RemoteIO ( unEitherStaged, runRemoteConn, sendRSIO, receiveRSIO, throwRemote )
+import RpcCommon ( DecodeStages(Stage2), RPCTable, RemoteAction, RSIO, RemoteState, RemoteException )
 import DeclsGenerator (genServer)
 
 runSerialized :: (Serialize a, Serialize b) =>
@@ -46,4 +46,3 @@ serveRequest rpcTable = receiveRSIO >>= call >>= sendRSIO
         Nothing -> throwRemote
                    $ "Unsupported operation (" <> operation <> ")"
         Just func -> func params
-

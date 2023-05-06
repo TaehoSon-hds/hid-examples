@@ -2,10 +2,10 @@
 
 module RemoteParser where
 
-import Language.Haskell.Exts hiding (name)
+import Language.Haskell.Exts ( parseDecl, ParseResult(ParseOk), SrcSpanInfo, Decl(TypeSig), Name(Ident) )
 import Language.Haskell.Meta.Syntax.Translate (toType)
-import Language.Haskell.TH as TH
-import Data.Char
+import Language.Haskell.TH as TH ( Q, Type )
+import Data.Char ( isSpace )
 
 data FuncInfo = FuncInfo {
     name :: String

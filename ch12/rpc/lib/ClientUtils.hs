@@ -5,7 +5,7 @@ module ClientUtils (
     callRemote) where
 
 import RpcCommon
-import Data.Serialize
+import Data.Serialize ( decode, encode, Serialize )
 import RemoteIO
 import DeclsGenerator (remote)
 

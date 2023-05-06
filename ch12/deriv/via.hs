@@ -3,7 +3,7 @@
 {-# LANGUAGE DerivingVia #-}
 {-# LANGUAGE StandaloneDeriving #-}
 
-import Data.Monoid
+import Data.Monoid ( Alt(Alt) )
 
 newtype Age = Age Int
   deriving newtype (Eq, Ord)

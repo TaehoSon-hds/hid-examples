@@ -3,6 +3,14 @@
 {-# LANGUAGE TypeOperators #-}
 
 import GHC.Generics
+    ( Generic(to, from),
+      U1(..),
+      M1(M1, unM1),
+      type (:+:)(R1),
+      D1,
+      C1,
+      FixityI(PrefixI),
+      Meta(MetaCons, MetaData) )
 
 data Status = Ok | Err
   deriving (Show, Eq, Generic)

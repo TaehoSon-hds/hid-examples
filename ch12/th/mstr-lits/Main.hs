@@ -1,7 +1,7 @@
 {-# LANGUAGE QuasiQuotes #-}
 module Main where
 
-import Str
+import Str ( str )
 
 verse :: String
 verse = [str|What needs my Shakespeare for his honoured bones,

@@ -1,8 +1,8 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE RoleAnnotations #-}
 
-import Data.Coerce
-import Unsafe.Coerce
+import Data.Coerce ( coerce )
+import Unsafe.Coerce ( unsafeCoerce )
 
 newtype Age = Age Int
   deriving (Show)

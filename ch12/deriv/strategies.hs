@@ -3,8 +3,8 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DeriveAnyClass #-}
 
-import GHC.Generics
-import Data.Aeson
+import GHC.Generics ( Generic )
+import Data.Aeson ( encode, ToJSON )
 
 newtype Age = Age {age :: Int}
 --  deriving (Show, Generic, Num, ToJSON)

@@ -2,7 +2,7 @@
 
 module Predicates (mkPredicates) where
 
-import Language.Haskell.TH
+import Language.Haskell.TH ( mkName, varP, wildP, Q, Con(NormalC), Dec(DataD), Name, conP, nameBase, reify, Info(TyConI) )
 
 mkPredicates :: Name -> Q [Dec]
 mkPredicates name =
