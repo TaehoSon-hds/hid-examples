@@ -1279,18 +1279,18 @@ executable type-operators
 --       base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable unsafe-elevator
---   main-is: UseUnsafe.hs
---   other-modules:
---       Elevator.LowLevel
---       Elevator.Unsafe
---   hs-source-dirs:
---       ch13/elevator/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , mtl >=2.0 && <2.3
---   default-language: Haskell2010
+executable unsafe-elevator
+  main-is: UseUnsafe.hs
+  other-modules:
+      Elevator.LowLevel
+      Elevator.Unsafe
+  hs-source-dirs:
+      ch13/elevator/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , mtl
+  default-language: Haskell2010
 
 executable via
   main-is: via.hs
