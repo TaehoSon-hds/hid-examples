@@ -3,11 +3,11 @@
 
 module DeclsGenerator where
 
-import Language.Haskell.TH
-import Language.Haskell.TH.Quote
+import Language.Haskell.TH ( mkName, clause, listE, normalB, funD, Exp, Q, ExpQ, Type(ForallT, AppT, ArrowT), Dec(SigD), Name, Info(VarI), dyn, nameBase, reify )
+import Language.Haskell.TH.Quote ( QuasiQuoter(..) )
 import Network.Socket (PortNumber)
 
-import RemoteParser
+import RemoteParser ( FuncInfo(..), parseRemoteInterface )
 
 remote :: QuasiQuoter
 remote =  QuasiQuoter {
