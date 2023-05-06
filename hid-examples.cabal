@@ -182,19 +182,19 @@ library shunting-yard
     , text-show
   default-language: Haskell2010
 
--- executable api-servant
---   main-is: ch13/api/ApiServant.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       aeson >=1.2 && <1.6
---     , base >=4.12 && <4.15
---     , blaze-html >=0.9 && <0.10
---     , servant-blaze >=0.7 && <0.10
---     , servant-server >=0.14 && <0.19
---     , warp >=3.2 && <3.4
---   default-language: Haskell2010
+executable api-servant
+  main-is: ch13/api/ApiServant.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      aeson
+    , base
+    , blaze-html
+    , servant-blaze
+    , servant-server
+    , warp
+  default-language: Haskell2010
 
 executable api-stage0
   main-is: ch13/api/Api0.hs
