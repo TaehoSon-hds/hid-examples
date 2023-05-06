@@ -373,15 +373,15 @@ executable dicegame
 --     , exceptions >=0.10 && <0.11
 --   default-language: Haskell2010
 
--- executable door
---   main-is: ch13/doors/SingManual.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: DataKinds GADTs TypeOperators KindSignatures StandaloneDeriving
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable door
+  main-is: ch13/doors/SingManual.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: DataKinds GADTs TypeOperators KindSignatures StandaloneDeriving
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable door-gen
 --   main-is: ch13/doors/SingGen.hs
