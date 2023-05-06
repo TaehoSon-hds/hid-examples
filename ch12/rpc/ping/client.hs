@@ -1,10 +1,10 @@
 {-# LANGUAGE QuasiQuotes #-}
 
-import Control.Monad
-import Control.Monad.Trans
+import Control.Monad ( replicateM_, void )
+import Control.Monad.Trans ( MonadIO(liftIO) )
 
-import ClientUtils
-import PingCommon
+import ClientUtils ( runRemote, remote, callRemote )
+import PingCommon ( PingAnswer, RemotePing )
 
 [remote|
 ping :: RemotePing PingAnswer

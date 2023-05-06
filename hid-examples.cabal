@@ -142,32 +142,32 @@ library radar-lib
       base
   default-language: Haskell2010
 
--- library rpc-lib
---   exposed-modules:
---       ClientUtils
---       ServerUtils
---       RpcCommon
---   other-modules:
---       DeclsGenerator
---       RemoteIO
---       RemoteParser
---       Paths_hid_examples
---   hs-source-dirs:
---       ch12/rpc/lib
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , bytestring >=0.10 && <0.12
---     , cereal >=0.5 && <0.6
---     , connection >=0.3 && <0.4
---     , exceptions >=0.10 && <0.11
---     , haskell-src-exts >=1.20 && <1.24
---     , haskell-src-meta >=0.6 && <0.9
---     , mtl >=2.0 && <2.3
---     , network >=2.8 && <3.2
---     , network-simple >=0.4.5 && <0.5
---     , template-haskell >=2.13 && <2.17
---   default-language: Haskell2010
+library rpc-lib
+  exposed-modules:
+      ClientUtils
+      ServerUtils
+      RpcCommon
+  other-modules:
+      DeclsGenerator
+      RemoteIO
+      RemoteParser
+      Paths_hid_examples
+  hs-source-dirs:
+      ch12/rpc/lib
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , bytestring
+    , cereal
+    , connection
+    , exceptions
+    , haskell-src-exts
+    , haskell-src-meta
+    , mtl
+    , network
+    , network-simple
+    , template-haskell
+  default-language: Haskell2010
 
 library shunting-yard
   exposed-modules:
@@ -920,33 +920,33 @@ executable person-text
 --     main-is: empty/Main.hs
 --   default-language: Haskell2010
 
--- executable ping-client
---   main-is: client.hs
---   other-modules:
---       PingCommon
---   hs-source-dirs:
---       ch12/rpc/ping/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , cereal >=0.5 && <0.6
---     , mtl >=2.0 && <2.3
---     , rpc-lib
---   default-language: Haskell2010
+executable ping-client
+  main-is: client.hs
+  other-modules:
+      PingCommon
+  hs-source-dirs:
+      ch12/rpc/ping/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , cereal
+    , mtl
+    , rpc-lib
+  default-language: Haskell2010
 
--- executable ping-server
---   main-is: server.hs
---   other-modules:
---       PingCommon
---   hs-source-dirs:
---       ch12/rpc/ping/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , cereal >=0.5 && <0.6
---     , mtl >=2.0 && <2.3
---     , rpc-lib
---   default-language: Haskell2010
+executable ping-server
+  main-is: server.hs
+  other-modules:
+      PingCommon
+  hs-source-dirs:
+      ch12/rpc/ping/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , cereal
+    , mtl
+    , rpc-lib
+  default-language: Haskell2010
 
 executable predicates
   main-is: Main.hs
