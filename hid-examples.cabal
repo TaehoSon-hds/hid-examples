@@ -777,17 +777,17 @@ executable maybe
       base
   default-language: Haskell2010
 
--- executable mstr-literals
---   main-is: Main.hs
---   other-modules:
---       Str
---   hs-source-dirs:
---       ch12/th/mstr-lits/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-missing-signatures -Wno-incomplete-patterns
---   build-depends:
---       base >=4.12 && <4.15
---     , template-haskell >=2.13 && <2.17
---   default-language: Haskell2010
+executable mstr-literals
+  main-is: Main.hs
+  other-modules:
+      Str
+  hs-source-dirs:
+      ch12/th/mstr-lits/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-missing-signatures -Wno-incomplete-patterns
+  build-depends:
+      base
+    , template-haskell
+  default-language: Haskell2010
 
 -- executable mvar-deadlocks
 --   main-is: ch16/mvar-deadlocks.hs
