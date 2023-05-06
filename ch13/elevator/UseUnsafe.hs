@@ -1,7 +1,7 @@
-import Control.Monad
-import System.Environment
+import Control.Monad ( foldM_ )
+import System.Environment ( getArgs )
 
-import Elevator.Unsafe
+import Elevator.Unsafe ( Elevator(Elevator), Floor(Floor), DoorState(Closed), call )
 
 gfElevator :: Elevator
 gfElevator = Elevator (Floor 0) Closed
