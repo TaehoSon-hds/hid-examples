@@ -224,15 +224,15 @@ executable api-stage2
       base
   default-language: Haskell2010
 
--- executable api-stage3
---   main-is: ch13/api/Api3.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: KindSignatures TypeOperators PolyKinds DataKinds TypeFamilies FlexibleInstances InstanceSigs ScopedTypeVariables
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable api-stage3
+  main-is: ch13/api/Api3.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: KindSignatures TypeOperators PolyKinds DataKinds TypeFamilies FlexibleInstances InstanceSigs ScopedTypeVariables
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable async-exc
 --   main-is: ch16/async-exc.hs
