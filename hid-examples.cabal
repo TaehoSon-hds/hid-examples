@@ -196,14 +196,14 @@ library shunting-yard
 --     , warp >=3.2 && <3.4
 --   default-language: Haskell2010
 
--- executable api-stage0
---   main-is: ch13/api/Api0.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable api-stage0
+  main-is: ch13/api/Api0.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable api-stage1
 --   main-is: ch13/api/Api1.hs
