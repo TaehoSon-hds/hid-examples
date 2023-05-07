@@ -1,10 +1,18 @@
 {-# LANGUAGE DataKinds #-}
 
 import Elevator.Safe
+    ( Door(Closed),
+      Floor(..),
+      Elevator(..),
+      SomeElevator(MkSomeElevator),
+      SomeFloor,
+      call,
+      mkSomeFloor,
+      callSome )
 
-import Data.Type.Nat
-import Control.Monad
-import System.Environment
+import Data.Type.Nat ( Nat0, Nat2, Nat3, Nat5 )
+import Control.Monad ( foldM_ )
+import System.Environment ( getArgs )
 
 type MX = Nat5
 

@@ -8,13 +8,13 @@
 
 module Elevator.Safe.Moves where
 
-import Data.Type.Nat
-import Data.Type.Nat.LE
-import Data.Type.Dec
-import Data.Type.Equality
-import Data.Void
+import Data.Type.Nat ( discreteNat, snat, Nat(S), SNat(..) )
+import Data.Type.Nat.LE ( decideLE, leSwap, leTrans, withLEProof, LE(..), LEProof(..) )
+import Data.Type.Dec ( Dec(..), Neg )
+import Data.Type.Equality ( type (:~:)(..) )
+import Data.Void ( absurd )
 
-import Elevator.Safe.Floor
+import Elevator.Safe.Floor ( Floor(..), BelowTop )
 
 data Move mx to from where
   StandStill :: Move mx to to

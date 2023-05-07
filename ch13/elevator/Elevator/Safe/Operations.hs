@@ -21,17 +21,18 @@
 
 module Elevator.Safe.Operations where
 
-import Data.Type.Nat
-import Data.Singletons.TH
-import Control.Monad.Trans
+import Data.Type.Nat ( Nat(S) )
+import Data.Singletons.TH ( Sing, SingI(..), SingKind(fromSing), singletons )
+import Control.Monad.Trans ( MonadIO(..) )
 
 import qualified Elevator.LowLevel as LL
-import Elevator.Safe.Floor
+import Elevator.Safe.Floor ( Floor, BelowTop, next, prev )
 
 $(singletons [d|
  data Door = Opened | Closed
-  deriving (Eq, Show)
   |])
+deriving instance Eq Door
+deriving instance Show Door
 
 data Elevator (mx :: Nat) (cur :: Nat) (door :: Door) where
   MkElevator :: SingI door => Floor mx cur -> Elevator mx cur door

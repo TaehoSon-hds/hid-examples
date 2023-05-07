@@ -2,15 +2,16 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE ExplicitNamespaces #-}
 
 module Elevator.Safe (module X, call, callSome, SomeFloor(..),
                      SomeElevator(..), mkSomeFloor) where
 
-import Control.Monad.Trans
-import Data.Type.Equality
-import Numeric.Natural
-import Data.Type.Nat
-import Data.Proxy
+import Control.Monad.Trans ( MonadIO(..) )
+import Data.Type.Equality ( type (:~:)(Refl) )
+import Numeric.Natural ( Natural )
+import Data.Type.Nat ( fromNatural, reify, Nat, SNatI )
+import Data.Proxy ( Proxy )
 
 import Elevator.Safe.Floor as X
 import Elevator.Safe.Operations as X
