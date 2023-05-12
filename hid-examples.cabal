@@ -1091,14 +1091,14 @@ executable strategies
     , base
   default-language: Haskell2010
 
--- executable stream
---   main-is: ch14/stream.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable stream
+  main-is: ch14/stream.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 executable stref
   main-is: stref.hs
