@@ -4,8 +4,8 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeFamilies #-}
 
-import Data.Kind
-import GHC.TypeLits
+import Data.Kind ( Type )
+import GHC.TypeLits ( Symbol )
 
 import Text.Read (readMaybe)
 
@@ -75,7 +75,7 @@ encode :: Show a => IO a -> IO String
 encode m = show <$> m
 
 route :: Server BookInfoAPI -> Request -> Maybe (IO String)
-route (root :<|> _) [] = pure $ encode $ root
+route (root :<|> _) [] = pure $ encode root
 route (_ :<|> title :<|> year :<|> rating) [op, bid'] = do
   bid <- readMaybe bid'
   case op of

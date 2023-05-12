@@ -4,12 +4,12 @@
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-import GHC.Generics
-import Data.Aeson
-import Servant
-import Servant.HTML.Blaze
+import GHC.Generics ( Generic )
+import Data.Aeson ( ToJSON )
+import Servant ( Proxy(..), serve, type (:<|>)(..), Capture, JSON, type (:>), Get, Server, Application )
+import Servant.HTML.Blaze ( HTML )
 import qualified Text.Blaze.Html5 as H
-import Network.Wai.Handler.Warp
+import Network.Wai.Handler.Warp ( run )
 
 data Rating = Bad | Good | Great
   deriving (Show, Generic, ToJSON)

@@ -21,17 +21,18 @@
 
 module Elevator.Safe.Operations where
 
-import Data.Type.Nat
-import Data.Singletons.TH
-import Control.Monad.Trans
+import Data.Type.Nat ( Nat(S) )
+import Data.Singletons.TH ( Sing, SingI(..), SingKind(fromSing), singletons )
+import Control.Monad.Trans ( MonadIO(..) )
 
 import qualified Elevator.LowLevel as LL
-import Elevator.Safe.Floor
+import Elevator.Safe.Floor ( Floor, BelowTop, next, prev )
 
 $(singletons [d|
  data Door = Opened | Closed
-  deriving (Eq, Show)
   |])
+deriving instance Eq Door
+deriving instance Show Door
 
 data Elevator (mx :: Nat) (cur :: Nat) (door :: Door) where
   MkElevator :: SingI door => Floor mx cur -> Elevator mx cur door
@@ -50,24 +51,24 @@ instance Show (Elevator mx cur door) where
 up :: (BelowTop mx cur, MonadIO m) =>
       Elevator mx cur Closed -> m (Elevator mx (S cur) Closed)
 up (MkElevator fl) = do
-  liftIO $ LL.up
+  liftIO LL.up
   pure (MkElevator $ next fl)
 
 down :: MonadIO m => Elevator mx (S cur) Closed -> m (Elevator mx cur Closed)
 down (MkElevator fl) = do
-  liftIO $ LL.down
+  liftIO LL.down
   pure $ MkElevator $ prev fl
 
 open :: MonadIO m =>
         Floor mx cur -> Elevator mx cur Closed -> m (Elevator mx cur Opened)
 open _ (MkElevator fl) = do
-  liftIO $ LL.open
+  liftIO LL.open
   pure (MkElevator fl)
 
 close :: MonadIO m =>
          Floor mx cur -> Elevator mx cur Opened -> m (Elevator mx cur Closed)
 close _ (MkElevator fl) = do
-  liftIO $ LL.close
+  liftIO LL.close
   pure (MkElevator fl)
 
 ensureClosed :: forall mx cur door m. MonadIO m =>

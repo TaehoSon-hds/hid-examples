@@ -9,10 +9,10 @@
 
 module Elevator.Safe.Floor where
 
-import Data.Type.Nat
-import Data.Type.Nat.LE
-import Data.Type.Equality
-import Data.Type.Dec
+import Data.Type.Nat ( eqNat, snat, snatToNat, withSNat, Nat(S), SNat(SS), SNatI )
+import Data.Type.Nat.LE ( decideLE, leStepL, withLEProof, LE(..), LEProof )
+import Data.Type.Equality ( type (:~:) )
+import Data.Type.Dec ( Dec(..) )
 
 
 type GoodFloor mx cur = (SNatI mx, SNatI cur, LE cur mx)

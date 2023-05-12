@@ -9,9 +9,9 @@
 {-# LANGUAGE InstanceSigs #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-import Data.Kind
-import GHC.TypeLits
-import Data.Proxy
+import Data.Kind ( Type )
+import GHC.TypeLits ( KnownSymbol, Symbol, symbolVal )
+import Data.Proxy ( Proxy(..) )
 
 import Control.Applicative ((<|>))
 
@@ -81,7 +81,7 @@ class HasServer layout where
 instance Show a => HasServer (Get a) where
   route :: Proxy (Get a)
         -> HandlerAction a -> Request -> Maybe (IO String)
-  route _ handler [] = Just (encode $ handler)
+  route _ handler [] = Just (encode handler)
   route _ _       _  = Nothing
 
 instance {-# OVERLAPS #-} HasServer (Get String) where

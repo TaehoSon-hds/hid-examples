@@ -182,57 +182,57 @@ library shunting-yard
     , text-show
   default-language: Haskell2010
 
--- executable api-servant
---   main-is: ch13/api/ApiServant.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       aeson >=1.2 && <1.6
---     , base >=4.12 && <4.15
---     , blaze-html >=0.9 && <0.10
---     , servant-blaze >=0.7 && <0.10
---     , servant-server >=0.14 && <0.19
---     , warp >=3.2 && <3.4
---   default-language: Haskell2010
+executable api-servant
+  main-is: ch13/api/ApiServant.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      aeson
+    , base
+    , blaze-html
+    , servant-blaze
+    , servant-server
+    , warp
+  default-language: Haskell2010
 
--- executable api-stage0
---   main-is: ch13/api/Api0.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable api-stage0
+  main-is: ch13/api/Api0.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable api-stage1
---   main-is: ch13/api/Api1.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable api-stage1
+  main-is: ch13/api/Api1.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable api-stage2
---   main-is: ch13/api/Api2.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: KindSignatures TypeOperators PolyKinds DataKinds TypeFamilies
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable api-stage2
+  main-is: ch13/api/Api2.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: KindSignatures TypeOperators PolyKinds DataKinds TypeFamilies
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable api-stage3
---   main-is: ch13/api/Api3.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: KindSignatures TypeOperators PolyKinds DataKinds TypeFamilies FlexibleInstances InstanceSigs ScopedTypeVariables
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable api-stage3
+  main-is: ch13/api/Api3.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: KindSignatures TypeOperators PolyKinds DataKinds TypeFamilies FlexibleInstances InstanceSigs ScopedTypeVariables
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+  default-language: Haskell2010
 
 -- executable async-exc
 --   main-is: ch16/async-exc.hs
@@ -373,26 +373,27 @@ executable dicegame
 --     , exceptions >=0.10 && <0.11
 --   default-language: Haskell2010
 
--- executable door
---   main-is: ch13/doors/SingManual.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: DataKinds GADTs TypeOperators KindSignatures StandaloneDeriving
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
---   build-depends:
---       base >=4.12 && <4.15
---   default-language: Haskell2010
+executable door
+  main-is: ch13/doors/SingManual.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: DataKinds GADTs TypeOperators KindSignatures StandaloneDeriving
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+  default-language: Haskell2010
 
--- executable door-gen
---   main-is: ch13/doors/SingGen.hs
---   other-modules:
---       Paths_hid_examples
---   other-extensions: DataKinds GADTs TypeOperators KindSignatures StandaloneDeriving
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
---   build-depends:
---       base >=4.12 && <4.15
---     , singletons >=2.5 && <2.8
---   default-language: Haskell2010
+executable door-gen
+  main-is: ch13/doors/SingGen.hs
+  other-modules:
+      Paths_hid_examples
+  other-extensions: DataKinds GADTs TypeOperators KindSignatures StandaloneDeriving
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+    , singletons
+    , singletons-th
+  default-language: Haskell2010
 
 -- executable dots
 --   main-is: ch16/dots.hs
@@ -484,24 +485,25 @@ executable dynvalues-gadt
       base
   default-language: Haskell2010
 
--- executable elevator
---   main-is: UseSafe.hs
---   other-modules:
---       Elevator.LowLevel
---       Elevator.Safe
---       Elevator.Safe.Floor
---       Elevator.Safe.Operations
---       Elevator.Safe.Moves
---   hs-source-dirs:
---       ch13/elevator/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
---   build-depends:
---       base >=4.12 && <4.15
---     , dec >=0.0.3 && <0.1
---     , fin >=0.1 && <0.3
---     , mtl >=2.0 && <2.3
---     , singletons >=2.5 && <2.8
---   default-language: Haskell2010
+executable elevator
+  main-is: UseSafe.hs
+  other-modules:
+      Elevator.LowLevel
+      Elevator.Safe
+      Elevator.Safe.Floor
+      Elevator.Safe.Operations
+      Elevator.Safe.Moves
+  hs-source-dirs:
+      ch13/elevator/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+    , dec
+    , fin
+    , mtl
+    , singletons
+    , singletons-th
+  default-language: Haskell2010
 
 executable evalrpn1
   main-is: evalrpn1.hs
@@ -1279,18 +1281,18 @@ executable type-operators
 --       base >=4.12 && <4.15
 --   default-language: Haskell2010
 
--- executable unsafe-elevator
---   main-is: UseUnsafe.hs
---   other-modules:
---       Elevator.LowLevel
---       Elevator.Unsafe
---   hs-source-dirs:
---       ch13/elevator/
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , mtl >=2.0 && <2.3
---   default-language: Haskell2010
+executable unsafe-elevator
+  main-is: UseUnsafe.hs
+  other-modules:
+      Elevator.LowLevel
+      Elevator.Unsafe
+  hs-source-dirs:
+      ch13/elevator/
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , mtl
+  default-language: Haskell2010
 
 executable via
   main-is: via.hs
