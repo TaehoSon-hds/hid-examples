@@ -254,15 +254,15 @@ executable basic-deriv
       base
   default-language: Haskell2010
 
--- executable chars
---   main-is: ch14/chars.hs
---   other-modules:
---       Paths_hid_examples
---   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
---   build-depends:
---       base >=4.12 && <4.15
---     , streaming >=0.2.2 && <0.4
---   default-language: Haskell2010
+executable chars
+  main-is: ch14/chars.hs
+  other-modules:
+      Paths_hid_examples
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base
+    , streaming
+  default-language: Haskell2010
 
 executable coerce
   main-is: coerce.hs

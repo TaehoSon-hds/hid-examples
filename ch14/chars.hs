@@ -1,7 +1,8 @@
+import Data.Char ( ord )
 import Streaming (Stream, Of, MonadIO)
+
 import qualified Streaming as S
 import qualified Streaming.Prelude as S
-import Data.Char
 
 printChar :: Char -> IO ()
 printChar c = putChar c >> putChar ' '
