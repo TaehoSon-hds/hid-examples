@@ -1,7 +1,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 
-import Control.Lens
-import Data.Monoid
+import Control.Lens ( over, makeLenses )
+import Data.Monoid ( Endo(Endo, appEndo) )
 
 data Point = Point {_x :: Double, _y :: Double}
   deriving (Show, Eq)
