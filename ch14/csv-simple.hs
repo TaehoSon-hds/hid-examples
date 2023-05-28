@@ -1,17 +1,16 @@
+import Control.Applicative ( Alternative((<|>)) )
+import Control.Monad.Trans.Resource ( runResourceT )
+import Data.Attoparsec.ByteString.Char8 as A ( char, takeWhile, endOfLine, manyTill, sepBy1, endOfInput, Parser )
+import Data.Attoparsec.ByteString.Streaming ( parsed )
 import Data.ByteString (ByteString)
 --import qualified Data.ByteString as B
-import Data.Text (Text)
-import qualified Data.Text.Encoding as T
-import Data.Attoparsec.ByteString.Char8 as A
-import Control.Applicative
-
-
-import qualified Streaming.Prelude as S
-import qualified Streaming.ByteString as BS
-import Control.Monad.Trans.Resource
-import Data.Attoparsec.ByteString.Streaming
 import Data.Function ((&))
 import Data.Functor (void)
+import Data.Text (Text)
+
+import qualified Data.Text.Encoding as T
+import qualified Streaming.ByteString as BS
+import qualified Streaming.Prelude as S
 
 
 field :: Parser ByteString
@@ -21,7 +20,7 @@ textField :: Parser Text
 textField = T.decodeUtf8 <$> field
 
 record :: Parser [Text]
-record = textField `sepBy1` (char ',')
+record = textField `sepBy1` char ','
 
 endOfFile :: Parser ()
 endOfFile = endOfInput <|> endOfLine *> endOfInput

@@ -1,14 +1,15 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE OverloadedStrings #-}
 
-import Streaming as S
-import qualified Streaming.Prelude as S
-import qualified Data.List.Extra as LE
-import System.Environment
 import Control.Monad (foldM)
 import Data.Text (Text)
-import Data.Text.IO as TIO
-import TextShow
+import Data.Text.IO as TIO ( putStrLn )
+import Streaming as S ( chunksOf, mapsM, Of, Stream )
+import System.Environment ( getArgs )
+import TextShow ( TextShow(showt) )
+
+import qualified Data.List.Extra as LE
+import qualified Streaming.Prelude as S
 
 withTab :: Int -> Text
 withTab num = showt num <> "\t"

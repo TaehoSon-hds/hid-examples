@@ -1,9 +1,9 @@
-import Streaming
-import System.Environment
-import Streaming.ByteString as BS
-import Control.Monad.Trans.Resource
+import Control.Monad.Trans.Resource ( runResourceT )
 import Data.Function ((&))
-import System.FilePath
+import Streaming ( Of((:>)) )
+import Streaming.ByteString as BS ( length, readFile, writeFile, copy )
+import System.Environment ( getArgs )
+import System.FilePath ( replaceBaseName, takeBaseName )
 
 copyFile' :: FilePath -> FilePath -> IO Int
 copyFile' fIn fOut = do

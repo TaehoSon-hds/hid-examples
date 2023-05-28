@@ -4,9 +4,9 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 
 
-import Data.Bifunctor
-import Data.Functor.Compose
-import Control.Monad
+import Data.Bifunctor ( Bifunctor(first, bimap) )
+import Data.Functor.Compose ( Compose(Compose) )
+import Control.Monad ( ap )
 
 data Stream f m r = Step (f (Stream f m r))
                   | Effect (m (Stream f m r))
@@ -51,7 +51,7 @@ printStream (Step (e :> str)) = do
 
 instance (Functor f, Monad m) => Functor (Stream f m) where
   fmap :: forall a b. (a -> b) -> Stream f m a -> Stream f m b
-  fmap fun stream = loop stream
+  fmap fun = loop
     where
       loop :: Stream f m a -> Stream f m b
       loop (Return r) = Return (fun r)
@@ -69,7 +69,7 @@ instance (Functor f, Monad m) => Monad (Stream f m) where
       loop (Step f) = Step (fmap loop f)
 
 instance (Functor f, Monad m) => Applicative (Stream f m) where
-  pure r = Return r
+  pure = Return
   (<*>) = ap
 
 stream1 :: Stream (Of Int) IO ()

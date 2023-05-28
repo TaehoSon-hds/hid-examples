@@ -2,15 +2,15 @@
 
 module CovidCSVParser where
 
+import Control.Applicative ((<|>))
+import Data.Attoparsec.ByteString.Char8 as A ( char, decimal, double, skipWhile, takeTill, takeWhile, endOfLine, parseOnly, take, count, option, Parser )
 import Data.ByteString (ByteString)
-import Data.Attoparsec.ByteString.Char8 as A
-import Data.Time (Day, fromGregorian)
+import Data.Either (fromRight)
 import Data.Text (Text)
 import Data.Text.Encoding (decodeUtf8)
-import Data.Either (fromRight)
-import Control.Applicative ((<|>))
+import Data.Time (Day, fromGregorian)
 
-import CovidData
+import CovidData ( CountryStat(CountryStat), DayDeaths(DayDeaths), DayCases(DayCases), DayInfo(DayInfo), CountryData(CountryData) )
 
 data CountryCodeWithRest = CountryCodeWithRest {
     code :: ByteString
@@ -39,13 +39,13 @@ countryCodeWithRestOrSkip =
   Just <$> countryCodeWithRest <|> const Nothing <$> skipLine
 
 field :: Parser ByteString
-field = takeTill (\c -> c == ',') <* char ','
+field = takeTill (== ',') <* char ','
 
 textField :: Parser Text
 textField = decodeUtf8 <$> field
 
 skipField :: Parser ()
-skipField = skipWhile (\c -> c /= ',') <* char ','
+skipField = skipWhile (/= ',') <* char ','
 
 intField :: Parser Int
 intField = (decimal <|> pure 0) <* skipField
@@ -78,7 +78,7 @@ dayInfo = (\a b -> [(a,b)]) <$> dayParser <*> dayInfoParser
 
 statInfo :: Parser CountryStat
 statInfo = CountryStat <$> intField -- population
-                       <*> (option Nothing $ Just <$> double) -- density
+                       <*> option Nothing (Just <$> double) -- density
 
 -- Parsers
 
