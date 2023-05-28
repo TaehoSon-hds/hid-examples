@@ -4,12 +4,13 @@
 
 module CovidData where
 
-import Data.Time (Day)
-import Data.Text (Text)
-import TextShow
-import Control.Lens
+import Control.Lens ( (&), folded, maximum1Of, (^.), (%~), (.~), makeLenses, Field2(_2) )
 import Data.ByteString (ByteString)
 import Data.Map (Map)
+import Data.Text (Text)
+import Data.Time (Day)
+import TextShow ( fromText, TextShow(showb) )
+
 import qualified Data.Map as M
 
 data CountryData = CountryData {
@@ -105,6 +106,6 @@ worldStats :: Map Text AccumulatedStat -> AccumulatedStat
 worldStats = M.foldl' (<>) mempty
 
 instance TextShow (Map Text AccumulatedStat) where
-  showb stats = M.foldlWithKey' withEntry "" stats
+  showb = M.foldlWithKey' withEntry ""
     where
       withEntry b nm st = b <> fromText nm <> "/" <> showb st <> "\n"

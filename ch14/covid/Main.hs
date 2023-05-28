@@ -2,21 +2,22 @@
 
 module Main where
 
-import Streaming
-import Streaming.Zip (gunzip)
-import qualified Streaming.Prelude as S
-import Control.Monad.Trans.Resource
-import qualified Streaming.ByteString.Char8 as C
-import qualified Data.Attoparsec.ByteString.Streaming as ABS
-import Data.Text (Text)
-import qualified Data.Text.IO as T
-import TextShow
-import Data.Map (Map)
-import qualified Data.Map as M
+import Control.Monad.Trans.Resource ( runResourceT )
 import Data.Function (on, (&))
+import Data.Map (Map)
+import Data.Text (Text)
+import Streaming ( Bifunctor(first), MonadIO(..), void, mapsM, Of(..), Stream )
+import Streaming.Zip (gunzip)
+import TextShow ( printT, TextShow )
 
-import CovidData
-import CovidCSVParser
+import qualified Data.Attoparsec.ByteString.Streaming as ABS
+import qualified Data.Map as M
+import qualified Data.Text.IO as T
+import qualified Streaming.ByteString.Char8 as C
+import qualified Streaming.Prelude as S
+
+import CovidData ( AccumulatedStat, CountryData, withDaysAndTotals, considerCountry, worldStats )
+import CovidCSVParser ( CountryCodeWithRest(code), countryCodeWithRestOrSkip, parseFullCountryData, parseDayInfo )
 
 tryMkCountryData :: Monad m =>
       Stream (Of CountryCodeWithRest) m r ->
@@ -28,7 +29,7 @@ tryMkCountryData str =
       case parseFullCountryData line1 of
         Nothing -> S.effects otherLines >>= noCountryData
         Just cd -> first (Just . withDaysAndTotals cd)
-                   <$> (S.mconcat $ S.map parseDayInfo otherLines)
+                   <$> S.mconcat (S.map parseDayInfo otherLines)
 
     noCountryData = pure . (Nothing :>)
 
@@ -41,7 +42,7 @@ printStats :: Map Text AccumulatedStat -> IO ()
 printStats stats = do
   T.putStrLn "\nContinent/population/cases/deaths"
   printT stats
-  T.putStrLn $ "World population/cases/deaths: "
+  T.putStrLn "World population/cases/deaths: "
   printT $ worldStats stats
 
 -- Data source: https://ourworldindata.org/coronavirus-source-data
